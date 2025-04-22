@@ -29,9 +29,11 @@ export const Navbar = () => {
           <Link to="/new-arrivals" className="text-black hover:text-gray-600">
             New Arrivals
           </Link>
-          <Button variant="outline" className="ml-4">
-            Login
-          </Button>
+          <Link to="/login">
+            <Button variant="outline" className="ml-4">
+              Login
+            </Button>
+          </Link>
         </div>
       </div>
     </nav>
