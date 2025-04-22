@@ -17,16 +17,16 @@ const rentalItems: RentalItem[] = [
     id: 1,
     title: "Sofa Chelif-334",
     image: "/image-5.png",
-    rentedDate: "Jan 15,2025",
-    dueDate: "Feb, 2027"
+    rentedDate: "Jan 15, 2025",
+    dueDate: "Feb, 2027",
   },
   {
     id: 2,
     title: "Study Table-Wooden",
     image: "/image-7.png",
-    rentedDate: "Feb 15,2025",
-    dueDate: "Feb, 2027"
-  }
+    rentedDate: "Feb 15, 2025",
+    dueDate: "Feb, 2027",
+  },
 ];
 
 export const DashboardPage = () => {
@@ -66,7 +66,7 @@ export const DashboardPage = () => {
 
           <Button
             variant="outline"
-            className="w-full mt-auto text-white border-white hover:bg-blue-600"
+            className="w-full mt-auto text-black border-white hover:bg-red-600"
           >
             Log Out
           </Button>
@@ -102,9 +102,16 @@ export const DashboardPage = () => {
             <h2 className="text-xl font-bold mb-4">Active Furniture Rentals</h2>
             <div className="space-y-4">
               {rentalItems.map((item) => (
-                <div key={item.id} className="bg-white p-4 rounded-lg shadow-lg flex items-center justify-between">
+                <div
+                  key={item.id}
+                  className="bg-white p-4 rounded-lg shadow-lg flex items-center justify-between"
+                >
                   <div className="flex items-center space-x-4">
-                    <img src={item.image} alt={item.title} className="w-24 h-24 object-cover rounded" />
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className="w-24 h-24 object-cover rounded"
+                    />
                     <div>
                       <h3 className="font-semibold">{item.title}</h3>
                       <p className="text-sm text-gray-600">
@@ -113,10 +120,16 @@ export const DashboardPage = () => {
                     </div>
                   </div>
                   <div className="space-x-2">
-                    <Button variant="outline" className="bg-blue-500 text-white hover:bg-blue-600">
+                    <Button
+                      variant="outline"
+                      className="bg-blue-500 text-white hover:bg-blue-600"
+                    >
                       Extend
                     </Button>
-                    <Button variant="outline" className="bg-red-500 text-white hover:bg-red-600">
+                    <Button
+                      variant="outline"
+                      className="bg-red-500 text-white hover:bg-red-600"
+                    >
                       Return
                     </Button>
                   </div>
