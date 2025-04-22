@@ -2,6 +2,7 @@ import React from "react";
 import { Button } from "../../components/ui/button";
 import { Card, CardContent } from "../../components/ui/card";
 import { Separator } from "../../components/ui/separator";
+import { Link } from "react-router-dom";
 
 // Define category data for mapping
 const categories = [
@@ -20,13 +21,6 @@ const trendingRentals = [
   { id: 3, title: "Computer Table-HCTC", image: "/image-8.png" },
 ];
 
-// Define new arrivals data
-const newArrivals = [
-  { id: 1, title: "Bed Getafe-207", image: "/image-9.png" },
-  { id: 2, title: "Alna HCH-145-1-1-20", image: "/image-11.png" },
-  { id: 3, title: "Kitchen Cabinet Shelf Organizer", image: "/image-12.png" },
-];
-
 // Define footer navigation data
 const footerNavigation = {
   quickNavigation: [{ title: "About Us" }, { title: "Terms & Condition" }],
@@ -36,7 +30,6 @@ const footerNavigation = {
     { title: "EMI" },
   ],
   information: [
-    { title: "New Arrival" },
     { title: "Cancel & Refund Policy" },
     { title: "Installment" },
     { title: "Delivery" },
@@ -52,7 +45,7 @@ const footerNavigation = {
 
 export const LandingPage = (): JSX.Element => {
   return (
-    <div className="bg-white flex flex-row justify-center w-full">
+    <div className="min-h-screen bg-gradient-to-r from-yellow-100 via-pink-100 to-green-100 p-6 flex flex-col items-center w-full">
       <div className="bg-white w-full max-w-[1442px] relative">
         {/* Hero Section */}
         <header className="relative w-full h-[720px] mt-20">
@@ -73,40 +66,44 @@ export const LandingPage = (): JSX.Element => {
         </header>
 
         {/* First Row Categories */}
-        <section className="flex w-full max-w-[1279px] items-center gap-8 mx-auto mt-[140px]">
+        <section className="flex flex-wrap justify-between gap-8 mx-auto mt-[140px] w-full">
           {categories.slice(0, 3).map((category) => (
-            <Card key={category.id} className="flex-1 border-none shadow-none">
-              <CardContent className="p-0 flex flex-col items-start gap-6">
-                <div
-                  className="relative w-full h-[405px] rounded-lg"
-                  style={{
-                    background: `url(${category.image}) 50% 50% / cover`,
-                  }}
-                />
-                <h3 className="font-medium text-black text-4xl tracking-[0] leading-[54px]">
-                  {category.title}
-                </h3>
-              </CardContent>
-            </Card>
+            <Link key={category.id} to={`/category/${category.title}`} className="w-full sm:w-1/2 lg:w-1/3">
+              <Card className="border-none shadow-none">
+                <CardContent className="p-0 flex flex-col items-start gap-6">
+                  <div
+                    className="relative w-full h-[405px] rounded-lg"
+                    style={{
+                      background: `url(${category.image}) 50% 50% / cover`,
+                    }}
+                  />
+                  <h3 className="font-medium text-black text-4xl tracking-[0] leading-[54px]">
+                    {category.title}
+                  </h3>
+                </CardContent>
+              </Card>
+            </Link>
           ))}
         </section>
 
         {/* Second Row Categories */}
-        <section className="flex w-full max-w-[1279px] items-center gap-[51px] mx-auto mt-[140px]">
+        <section className="flex flex-wrap justify-between gap-8 mx-auto mt-[140px] w-full">
           {categories.slice(3, 6).map((category) => (
-            <Card key={category.id} className="flex-1 border-none shadow-none">
-              <CardContent className="p-0 flex flex-col items-start gap-6">
-                <div
-                  className="relative w-full h-[405px] rounded-lg"
-                  style={{
-                    background: `url(${category.image}) 50% 50% / cover`,
-                  }}
-                />
-                <h3 className="font-medium text-black text-4xl tracking-[0] leading-[54px]">
-                  {category.title}
-                </h3>
-              </CardContent>
-            </Card>
+            <Link key={category.id} to={`/category/${category.title}`} className="w-full sm:w-1/2 lg:w-1/3">
+              <Card className="border-none shadow-none">
+                <CardContent className="p-0 flex flex-col items-start gap-6">
+                  <div
+                    className="relative w-full h-[405px] rounded-lg"
+                    style={{
+                      background: `url(${category.image}) 50% 50% / cover`,
+                    }}
+                  />
+                  <h3 className="font-medium text-black text-4xl tracking-[0] leading-[54px]">
+                    {category.title}
+                  </h3>
+                </CardContent>
+              </Card>
+            </Link>
           ))}
         </section>
 
@@ -132,33 +129,11 @@ export const LandingPage = (): JSX.Element => {
           </div>
         </section>
 
-        {/* New Arrivals Section */}
-        <section className="mt-[-1900px] px-20 ml-[800px]">
-          <h2 className="font-semibold text-black text-5xl tracking-[-0.96px] leading-[normal] mb-8">
-            New Arrivals
-          </h2>
-
-          <div className="flex flex-col gap-8">
-            {newArrivals.map((item) => (
-              <div key={item.id} className="mb-8">
-                <img
-                  className="w-full max-w-[448px] object-cover mb-4"
-                  alt={item.title}
-                  src={item.image}
-                />
-                <h3 className="font-semibold text-black text-[32px] tracking-[0] leading-[48px]">
-                  {item.title}
-                </h3>
-              </div>
-            ))}
-          </div>
-        </section>
-
         {/* Footer */}
-        <footer className="w-full mt-[200px] bg-white pt-12 pb-8">
+        <footer className="w-full bg-white pt-12 pb-8 relative z-0">
           <Separator className="w-[1280px] mx-auto" />
 
-          <div className="flex justify-between px-20 pt-12">
+          <div className="flex flex-wrap justify-between gap-8 px-20 pt-12">
             {/* Logo */}
             <div>
               <img
@@ -166,67 +141,41 @@ export const LandingPage = (): JSX.Element => {
                 alt="QuickRent Furnish Logo"
                 src="/image-13.png"
               />
+            </div>
 
-              <div className="flex items-start gap-2 mt-8">
-                {footerNavigation.socialIcons.map((social, index) => (
-                  <div key={index} className="relative w-10 h-10 rounded">
-                    <div className="relative w-6 h-6 top-2 left-2">
-                      <img
-                        className="absolute w-5 h-5"
-                        alt="Social Icon"
-                        src={social.icon}
-                      />
-                    </div>
-                  </div>
+            {/* Footer Navigation */}
+            <div className="flex flex-wrap gap-8">
+              {/* Quick Navigation */}
+              <div className="flex flex-col items-start">
+                <h4 className="font-medium text-black">Quick Navigation</h4>
+                {footerNavigation.quickNavigation.map((item, index) => (
+                  <p key={index} className="text-gray-600">{item.title}</p>
+                ))}
+              </div>
+
+              {/* Knowledge Base */}
+              <div className="flex flex-col items-start">
+                <h4 className="font-medium text-black">Knowledge Base</h4>
+                {footerNavigation.knowledgeBase.map((item, index) => (
+                  <p key={index} className="text-gray-600">{item.title}</p>
+                ))}
+              </div>
+
+              {/* Information */}
+              <div className="flex flex-col items-start">
+                <h4 className="font-medium text-black">Information</h4>
+                {footerNavigation.information.map((item, index) => (
+                  <p key={index} className="text-gray-600">{item.title}</p>
                 ))}
               </div>
             </div>
 
-            {/* Quick Navigation */}
-            <div className="flex flex-col items-end gap-6 w-[187px]">
-              <h4 className="self-stretch font-small-text font-[number:var(--small-text-font-weight)] text-black text-[length:var(--small-text-font-size)] tracking-[var(--small-text-letter-spacing)] leading-[var(--small-text-line-height)]">
-                QUICK NAVIGATION
-              </h4>
-
-              {footerNavigation.quickNavigation.map((item, index) => (
-                <div
-                  key={index}
-                  className="self-stretch font-small-text font-[number:var(--small-text-font-weight)] text-[#444444] text-[length:var(--small-text-font-size)] tracking-[var(--small-text-letter-spacing)] leading-[var(--small-text-line-height)]"
-                >
-                  {item.title}
-                </div>
-              ))}
-            </div>
-
-            {/* Knowledge Base */}
-            <div className="flex flex-col items-end gap-6 w-[187px]">
-              <h4 className="self-stretch font-small-text font-[number:var(--small-text-font-weight)] text-black text-[length:var(--small-text-font-size)] tracking-[var(--small-text-letter-spacing)] leading-[var(--small-text-line-height)]">
-                KNOWLEDGE BASE
-              </h4>
-
-              {footerNavigation.knowledgeBase.map((item, index) => (
-                <div
-                  key={index}
-                  className="self-stretch font-small-text font-[number:var(--small-text-font-weight)] text-[#444444] text-[length:var(--small-text-font-size)] tracking-[var(--small-text-letter-spacing)] leading-[var(--small-text-line-height)]"
-                >
-                  {item.title}
-                </div>
-              ))}
-            </div>
-
-            {/* Information */}
-            <div className="flex flex-col items-end gap-6 w-[187px]">
-              <h4 className="self-stretch font-small-text font-[number:var(--small-text-font-weight)] text-black text-[length:var(--small-text-font-size)] tracking-[var(--small-text-letter-spacing)] leading-[var(--small-text-line-height)]">
-                INFORMATION
-              </h4>
-
-              {footerNavigation.information.map((item, index) => (
-                <div
-                  key={index}
-                  className="self-stretch font-small-text font-[number:var(--small-text-font-weight)] text-[#444444] text-[length:var(--small-text-font-size)] tracking-[var(--small-text-letter-spacing)] leading-[var(--small-text-line-height)]"
-                >
-                  {item.title}
-                </div>
+            {/* Social Icons */}
+            <div className="flex items-center gap-4 mt-8">
+              {footerNavigation.socialIcons.map((social, index) => (
+                <a key={index} href="#" className="w-10 h-10 rounded bg-gray-100 flex items-center justify-center hover:bg-gray-200 transition-colors">
+                  <img className="w-5 h-5" alt="Social Icon" src={social.icon} />
+                </a>
               ))}
             </div>
           </div>
@@ -235,3 +184,5 @@ export const LandingPage = (): JSX.Element => {
     </div>
   );
 };
+
+export default LandingPage;

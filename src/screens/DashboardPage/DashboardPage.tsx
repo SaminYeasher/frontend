@@ -18,20 +18,20 @@ const rentalItems: RentalItem[] = [
     title: "Sofa Chelif-334",
     image: "/image-5.png",
     rentedDate: "Jan 15,2025",
-    dueDate: "feb,2027"
+    dueDate: "Feb, 2027"
   },
   {
     id: 2,
     title: "Study Table-Wooden",
     image: "/image-7.png",
-    rentedDate: "feb 15,2025",
-    dueDate: "feb,2027"
+    rentedDate: "Feb 15,2025",
+    dueDate: "Feb, 2027"
   }
 ];
 
 export const DashboardPage = () => {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gradient-to-r from-yellow-100 via-pink-100 to-green-100 p-6 flex flex-col bg-gray-50 mt-20 mb-20">
       {/* Sidebar */}
       <div className="fixed left-0 top-0 h-full w-64 bg-blue-500 text-white p-6">
         <div className="space-y-6">
@@ -41,7 +41,7 @@ export const DashboardPage = () => {
               <AvatarFallback>SK</AvatarFallback>
             </Avatar>
             <div>
-              <h2 className="font-semibold">Sarah khan</h2>
+              <h2 className="font-semibold">Sarah Khan</h2>
               <p className="text-sm text-blue-200">Premium Member</p>
             </div>
           </div>
@@ -51,13 +51,13 @@ export const DashboardPage = () => {
               Dashboard
             </Link>
             <Link to="/browse" className="block py-2 px-4 hover:bg-blue-600 rounded-lg">
-              Browse furniture
+              Browse Furniture
             </Link>
             <Link to="/wishlist" className="block py-2 px-4 hover:bg-blue-600 rounded-lg">
               Wishlist
             </Link>
             <Link to="/settings" className="block py-2 px-4 hover:bg-blue-600 rounded-lg">
-              Account Setting
+              Account Settings
             </Link>
             <Link to="/support" className="block py-2 px-4 hover:bg-blue-600 rounded-lg">
               Support
@@ -78,20 +78,20 @@ export const DashboardPage = () => {
         <div className="max-w-6xl mx-auto">
           <div className="mb-8">
             <h1 className="text-2xl font-bold">My Furniture Dashboard</h1>
-            <p className="text-gray-600">Welcome Back, Today is March 4,2025</p>
+            <p className="text-gray-600">Welcome back, Today is March 4, 2025</p>
           </div>
 
           {/* Stats */}
           <div className="grid grid-cols-3 gap-6 mb-8">
-            <div className="bg-white p-6 rounded-lg shadow">
+            <div className="bg-white p-6 rounded-lg shadow-lg">
               <h3 className="text-gray-600 mb-2">Active Rentals</h3>
               <p className="text-3xl font-bold">4</p>
             </div>
-            <div className="bg-white p-6 rounded-lg shadow">
+            <div className="bg-white p-6 rounded-lg shadow-lg">
               <h3 className="text-gray-600 mb-2">Next Due Date</h3>
-              <p className="text-3xl font-bold text-red-500">April 25,2025</p>
+              <p className="text-3xl font-bold text-red-500">April 25, 2025</p>
             </div>
-            <div className="bg-white p-6 rounded-lg shadow">
+            <div className="bg-white p-6 rounded-lg shadow-lg">
               <h3 className="text-gray-600 mb-2">Payment</h3>
               <p className="text-3xl font-bold text-green-500">BDT 30,000</p>
             </div>
@@ -102,7 +102,7 @@ export const DashboardPage = () => {
             <h2 className="text-xl font-bold mb-4">Active Furniture Rentals</h2>
             <div className="space-y-4">
               {rentalItems.map((item) => (
-                <div key={item.id} className="bg-white p-4 rounded-lg shadow flex items-center justify-between">
+                <div key={item.id} className="bg-white p-4 rounded-lg shadow-lg flex items-center justify-between">
                   <div className="flex items-center space-x-4">
                     <img src={item.image} alt={item.title} className="w-24 h-24 object-cover rounded" />
                     <div>
@@ -127,6 +127,7 @@ export const DashboardPage = () => {
         </div>
       </div>
 
+      {/* Footer */}
       <Footer />
     </div>
   );

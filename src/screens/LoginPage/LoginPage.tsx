@@ -6,16 +6,17 @@ import { Input } from "../../components/ui/input";
 
 export const LoginPage = () => {
   return (
-    <div className="min-h-screen bg-gray-50 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-md w-full space-y-8 bg-white p-8 rounded-lg shadow-md">
+    <div className="min-h-screen bg-gradient-to-r from-pink-100 via-yellow-100 to-green-100 p-6 flex items-center justify-center mt-20 mb-20">
+      <div className="max-w-md w-full space-y-8 bg-white p-8 rounded-lg shadow-xl">
         <div>
           <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
             Welcome Back
           </h2>
           <p className="mt-2 text-center text-sm text-gray-600">
-            please enter your details to login
+            Please enter your details to login
           </p>
         </div>
+
         <form className="mt-8 space-y-6">
           <div className="space-y-4">
             <div>
@@ -31,6 +32,7 @@ export const LoginPage = () => {
                 className="mt-1"
               />
             </div>
+
             <div>
               <label htmlFor="password" className="block text-sm font-medium text-gray-700">
                 Password
@@ -60,7 +62,7 @@ export const LoginPage = () => {
             </div>
           </div>
 
-          <Button type="submit" className="w-full bg-blue-500 hover:bg-blue-600">
+          <Button type="submit" className="w-full bg-pink-500 text-white hover:bg-pink-600 rounded-full py-2 shadow-md">
             Login
           </Button>
 
@@ -76,7 +78,7 @@ export const LoginPage = () => {
           <Button
             type="button"
             variant="outline"
-            className="w-full border-2"
+            className="w-full border-2 text-pink-500 hover:bg-pink-100 rounded-full py-2"
           >
             Continue with Google
           </Button>
